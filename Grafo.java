@@ -15,7 +15,7 @@ public class Grafo {
         vertices[u].adj.add(vertices[v]);
     }
 
-    public void buscaLargura() {
+    public void buscaLargura() { //LEMBRAR DE PERCORRER VÉRTICES ISOLADOS DEPOIS
         for (Vertice v : vertices) { //a lista de vértices vai ser percorrido e pintar cada vértice da cor cinza demonstrando que não foi percorrido
             v.cor = "cinza"; //não percorrido
         }
@@ -25,12 +25,33 @@ public class Grafo {
         while(!prioridade.isEmpty()) { //Enquanto a lista não for vazia
             Vertice u = prioridade.remove(0);
             for (Vertice v : u.adj) {
-                if (v.cor.equals("branco")) { //chamar função pra colorir
-                    v.cor = "cinza";
+                if (v.cor.equals("cinza")) {
                     prioridade.add(v);
                 }
             }
-            u.cor = "preto";
+            u.cor = pintarVertice(u); //chamar função pra colorir
         }
     }
+
+    public String pintarVertice(Vertice u){
+        LinkedList<String> coresDisponiveis = new LinkedList<>();
+        coresDisponiveis.add("preto");
+        coresDisponiveis.add("branco");
+        coresDisponiveis.add("verde");
+        coresDisponiveis.add("vermelho");
+        for(Vertice adjacente : u.adj){
+            if(adjacente.cor == "preto")
+                coresDisponiveis.remove("preto");
+            else if(adjacente.cor == "branco")
+                coresDisponiveis.remove("branco");
+            else if(adjacente.cor == "verde")
+                coresDisponiveis.remove("verde");
+            else if(adjacente.cor == "vermelho")
+                coresDisponiveis.remove("vermelho");
+            else
+                return "Não há como adicionar cor ao vertice, pois todos seus adjacentes ja possuem cor";
+        }
+        return coresDisponiveis.get(0);
+    }
+
 }
