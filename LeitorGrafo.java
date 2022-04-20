@@ -11,7 +11,7 @@ public class LeitorGrafo {
             leitor.nextLine();
             leitor.nextLine(); //Só serve para pular as duas primeiras linhas do arquivo.
 
-            String aux[] = leitor.nextLine().split("=");
+            String aux[] = leitor.nextLine().split("="); //aux vai reeber um vetor de 2 posições, sendo a segunda o número de vértices
             int tam = Integer.parseInt(aux[1]); //Pega o tamanho do grafo.
 
             leitor.nextLine(); //Pula a quarta linha.
