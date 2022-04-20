@@ -7,7 +7,7 @@ public class Vertice { //bar
     public boolean colorido;
 
     public Vertice(int id){
-        this.id = id;
+        this.id = id + 1;
         this.adj = new LinkedList<Vertice>();
         this.colorido = false;
     }
