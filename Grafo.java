@@ -30,6 +30,9 @@ public class Grafo {
                 }
             }
             u.cor = pintarVertice(u); //chamar função pra colorir
+            if(u.cor == "Não há como adicionar cor ao vertice, pois todos seus adjacentes ja possuem cor"){
+                System.out.println("AQUI TEM QUE ENCERRAR O PROGRAMA");
+            }
         }
     }
 
