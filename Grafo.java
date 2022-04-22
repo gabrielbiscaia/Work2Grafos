@@ -36,6 +36,16 @@ public class Grafo {
         }
     }
 
+    public void imprimeVertices(){
+        for(Vertice v : vertices){
+            System.out.println("--------------------");
+            System.out.println("Numero do vertice: "+v.id);
+            System.out.println("Cor do vertice: "+v.cor);
+        }
+        System.out.println("--------------------");
+        System.out.println("Todos os vertices foram imprimidos");
+    }
+
     public String pintarVertice(Vertice u){
         LinkedList<String> coresDisponiveis = new LinkedList<>();
         coresDisponiveis.add("preto");
