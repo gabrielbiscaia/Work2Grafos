@@ -26,11 +26,11 @@ public class Grafo {
             Vertice u = prioridade.remove(0);
             for (Vertice v : u.adj) {
                 if (v.cor.equals("cinza")) {
+                    v.cor = pintarVertice(v); //chamar função pra colorir
                     prioridade.add(v);
                 }
             }
-            u.cor = pintarVertice(u); //chamar função pra colorir
-            if(u.cor == "Não há como adicionar cor ao vertice, pois todos seus adjacentes ja possuem cor"){
+            if(u.cor == "todas as cores foram utilizadas"){
                 System.out.println("AQUI TEM QUE ENCERRAR O PROGRAMA");
             }
         }
@@ -53,16 +53,17 @@ public class Grafo {
         coresDisponiveis.add("verde");
         coresDisponiveis.add("vermelho");
         for(Vertice adjacente : u.adj){
-            if(adjacente.cor == "preto")
+            if(adjacente.cor.equals("preto"))
                 coresDisponiveis.remove("preto");
-            else if(adjacente.cor == "branco")
+            if(adjacente.cor.equals("branco"))
                 coresDisponiveis.remove("branco");
-            else if(adjacente.cor == "verde")
+            if(adjacente.cor.equals("verde"))
                 coresDisponiveis.remove("verde");
-            else if(adjacente.cor == "vermelho")
+            if(adjacente.cor.equals("vermelho"))
                 coresDisponiveis.remove("vermelho");
-            else
-                return "Não há como adicionar cor ao vertice, pois todos seus adjacentes ja possuem cor";
+        }
+        if(coresDisponiveis.isEmpty()){
+            return "todas as cores foram utilizadas";
         }
         return coresDisponiveis.get(0);
     }
