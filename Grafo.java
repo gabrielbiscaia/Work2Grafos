@@ -30,9 +30,6 @@ public class Grafo {
                     prioridade.add(v);
                 }
             }
-            if(u.cor == "todas as cores foram utilizadas"){
-                System.out.println("AQUI TEM QUE ENCERRAR O PROGRAMA");
-            }
         }
     }
 
