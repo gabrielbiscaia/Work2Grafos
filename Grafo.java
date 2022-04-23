@@ -19,7 +19,7 @@ public class Grafo {
         for (Vertice v : vertices) { //a lista de vértices vai ser percorrido e pintar cada vértice da cor cinza demonstrando que não foi percorrido
             v.cor = "cinza"; //não percorrido
         }
-        vertices[0].cor = "branco"; //primeiro vértice da cor branca
+        vertices[0].cor = "preto"; //primeiro vértice da cor branca
         List<Vertice> prioridade = new LinkedList<>();
         prioridade.add(vertices[0]);
         while(!prioridade.isEmpty()) { //Enquanto a lista não for vazia
@@ -32,6 +32,26 @@ public class Grafo {
             }
             if(u.cor == "todas as cores foram utilizadas"){
                 System.out.println("AQUI TEM QUE ENCERRAR O PROGRAMA");
+            }
+        }
+    }
+
+    public void buscaProfundidade() {
+        for (Vertice v : vertices) {
+            v.cor = "cinza";
+        }
+        for (Vertice v : vertices) {
+            if (v.cor.equals("cinza")) {
+                v.cor = pintarVertice(v);
+            }
+        }
+    }
+
+    public void checarProximo(Vertice vertice) {
+        for (Vertice v : vertice.adj) {
+            if (v.cor.equals("cinza")) {
+                v.cor = pintarVertice(v);
+                checarProximo(v);
             }
         }
     }
