@@ -26,7 +26,7 @@ public class Grafo {
             Vertice u = prioridade.remove(0);
             for (Vertice v : u.adj) {
                 if (v.cor.equals("cinza")) {
-                    v.cor = pintarVertice(v); //chamar função pra colorir
+                    v.cor = pintarVertice(v); //função pra colorir os adjacentes
                     prioridade.add(v);
                 }
             }
@@ -62,6 +62,8 @@ public class Grafo {
             if(adjacente.cor.equals("vermelho"))
                 coresDisponiveis.remove("vermelho");
         }
+        System.out.println(coresDisponiveis);
+        System.out.println(coresDisponiveis.get(0));
         if(coresDisponiveis.isEmpty()){
             return "todas as cores foram utilizadas";
         }
