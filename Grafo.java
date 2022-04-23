@@ -62,6 +62,16 @@ public class Grafo {
             if(adjacente.cor.equals("vermelho"))
                 coresDisponiveis.remove("vermelho");
         }
+        for (Vertice pai : u.pais) {
+            if(pai.cor.equals("preto"))
+                coresDisponiveis.remove("preto");
+            if(pai.cor.equals("branco"))
+                coresDisponiveis.remove("branco");
+            if(pai.cor.equals("verde"))
+                coresDisponiveis.remove("verde");
+            if(pai.cor.equals("vermelho"))
+                coresDisponiveis.remove("vermelho");
+        }
         if(coresDisponiveis.isEmpty()){
             return "todas as cores foram utilizadas";
         }

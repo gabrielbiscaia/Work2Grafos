@@ -1,6 +1,6 @@
 dl
 format=edgelist1
-n=15
+n=10
 data:
 1 2
 1 7

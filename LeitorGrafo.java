@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class LeitorGrafo {
     public Grafo criarGrafo() {
         try {
-            FileReader arq = new FileReader("grafos_de_entrada/0_grafo.txt");
+            FileReader arq = new FileReader("grafos_de_entrada/60_grafos.txt");
             Scanner leitor = new Scanner(arq);
 
             leitor.nextLine();
@@ -21,6 +21,7 @@ public class LeitorGrafo {
             while (leitor.hasNextLine()) {
                 aux = leitor.nextLine().split(" ");
                 g.addAresta(Integer.parseInt(aux[0]) - 1, Integer.parseInt(aux[1]) - 1);
+                g.vertices[Integer.parseInt(aux[1]) - 1].pais.add(g.vertices[Integer.parseInt(aux[0]) - 1]);
             }
 
             leitor.close();
