@@ -62,8 +62,6 @@ public class Grafo {
             if(adjacente.cor.equals("vermelho"))
                 coresDisponiveis.remove("vermelho");
         }
-        System.out.println(coresDisponiveis);
-        System.out.println(coresDisponiveis.get(0));
         if(coresDisponiveis.isEmpty()){
             return "todas as cores foram utilizadas";
         }
