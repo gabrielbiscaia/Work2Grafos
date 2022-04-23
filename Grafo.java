@@ -26,7 +26,7 @@ public class Grafo {
             Vertice u = prioridade.remove(0);
             for (Vertice v : u.adj) {
                 if (v.cor.equals("cinza")) {
-                    v.cor = pintarVertice(v); //chamar função pra colorir
+                    v.cor = pintarVertice(v); //função pra colorir os adjacentes
                     prioridade.add(v);
                 }
             }
