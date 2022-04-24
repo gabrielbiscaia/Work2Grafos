@@ -20,8 +20,12 @@ public class LeitorGrafo {
 
             while (leitor.hasNextLine()) {
                 aux = leitor.nextLine().split(" ");
-                g.addAresta(Integer.parseInt(aux[0]) - 1, Integer.parseInt(aux[1]) - 1);
-                g.vertices[Integer.parseInt(aux[1]) - 1].pais.add(g.vertices[Integer.parseInt(aux[0]) - 1]);
+                int index1 = Integer.parseInt(aux[0]) - 1;
+                int index2 = Integer.parseInt(aux[1]) - 1;
+                g.addAresta(index1, index2);
+                g.vertices[index2].pais.add(g.vertices[index1]);
+                g.vertices[index1].grauTotal++;
+                g.vertices[index2].grauTotal++;
             }
 
             leitor.close();

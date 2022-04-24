@@ -36,16 +36,34 @@ public class Grafo {
         }
     }
 
-    public void percorrerGrafo() {
-        for (Vertice v : vertices) {
+    public void percorrerGrafo() { //Percorre o grafo em sequência de vértices.
+        for (Vertice v : vertices) 
             v.cor = "cinza";
-            v.pais = null;
-        }
         for (Vertice v : vertices) {
-            if (v.cor.equals("cinza")) {
+            if (v.cor.equals("cinza")) 
                 v.cor = pintarVertice(v);
-            }
         }
+    }
+
+    public void percorrerGrafo2() { //Percorre o grafo em ordem decrescente dos graus totais de cada vértice.
+        for (Vertice v : vertices)
+            v.cor = "cinza";
+        for (int i = 0; i < vertices.length; i++) {
+            int maiorGrau = maiorGrau();
+            vertices[maiorGrau].cor = pintarVertice(vertices[maiorGrau]);
+            vertices[maiorGrau].grauTotal = -1; //Garante que um vértice já percorrido não retorne;
+        }
+    }
+
+    private int maiorGrau() { //Retorna o index do grafo de maior grau.
+        Vertice maior = vertices[0];
+        for (Vertice v : vertices) {
+            if (v.grauTotal > maior.grauTotal)
+                maior = v;
+        }
+        int index = maior.id - 1;
+
+        return index;
     }
 
     public void imprimeVertices(){
