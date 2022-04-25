@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class LeitorGrafo {
     public Grafo criarGrafo() {
         try {
-            FileReader arq = new FileReader("grafos_de_entrada/60_grafos.txt");
+            FileReader arq = new FileReader("grafos_de_entrada/63_grafo.txt");
             Scanner leitor = new Scanner(arq);
 
             leitor.nextLine();
